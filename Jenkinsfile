@@ -32,7 +32,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'github-testing', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh """
                         git commit -a -m 'Testing commit'
-                        git push https://${GIT_PASSWORD}@github.com/Axory/jenkins-pipeline.git HEAD:main
+                        git push https://${GIT_PASSWORD}@github.com/Axory/jenkins-pipeline.git
                     """
                 }
             }

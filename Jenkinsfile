@@ -23,7 +23,7 @@ pipeline {
 
         stage('Generate Dirty Data'){
             steps {
-                sh "${BUILD_TIMESTAMP} > demo.txt"
+                sh "echo ${BUILD_TIMESTAMP} > demo.txt"
             }
         }
 

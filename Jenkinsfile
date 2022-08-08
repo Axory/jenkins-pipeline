@@ -28,11 +28,13 @@ pipeline {
         }
 
         stage('Commit'){
-            withCredentials([usernamePassword(credentialsId: 'github-testing', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                sh """
-                    git commit -a -m 'Testing commit'
-                    git push https://github.com/Axory/jenkins-pipeline.git HEAD:main
-                """
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'github-testing', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    sh """
+                        git commit -a -m 'Testing commit'
+                        git push https://${GIT_USERNAME}@github.com/Axory/jenkins-pipeline.git HEAD:main
+                    """
+                }
             }
         }
     }
